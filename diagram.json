@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "author": "239X1A04D4 PAPANNAGARI KEERTHI [W]",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 9.6, "left": -4.76, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo1", "top": -88.4, "left": 172.8, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -32.4,
+      "left": -140.2,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 62.4,
+      "left": -211.75,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    { "type": "wokwi-slide-switch", "id": "sw1", "top": 196.4, "left": 252.7, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 262.4,
+      "left": -239.2,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "led1:C", "r1:1", "green", [ "v0" ] ],
+    [ "ldr1:GND", "esp:GND.1", "black", [ "h48", "v-134.8" ] ],
+    [ "ldr1:AO", "esp:32", "green", [ "h38.4", "v-221.5" ] ],
+    [ "ldr1:VCC", "esp:CLK", "red", [ "h182.4", "v-76.8" ] ],
+    [ "sw1:1", "esp:27", "green", [ "v-105.6", "h-259.2" ] ],
+    [ "led1:A", "esp:13", "green", [ "v0" ] ],
+    [ "esp:14", "r1:2", "green", [ "h-182.25", "v-48" ] ],
+    [ "sw1:2", "esp:2", "green", [ "v0" ] ],
+    [ "servo1:PWM", "esp:2", "green", [ "h-38.4", "v192.2" ] ],
+    [ "servo1:V+", "esp:5V", "green", [ "h0" ] ],
+    [ "servo1:GND", "esp:GND.1", "black", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
